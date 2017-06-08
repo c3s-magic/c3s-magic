@@ -1,0 +1,13 @@
+services:
+  build: ./adaguc-services/
+  expose:
+  - "9000"
+  volumes:
+    - ./data/services:/data
+portal:
+  build: ./climate4impact-portal/docker/
+  expose:
+    - "443"
+  volumes:
+    - ./configs/portal:/config
+    - ./data/portal:/data
