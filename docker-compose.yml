@@ -9,7 +9,7 @@ adaguc-services:
     - ./data/adaguc-services:/data
     - ./config/adaguc-services:/config
 portal:
-  # build: ./climate4impact-portal/docker/
+  # build: /home/user/climate4impact-portal/docker/
   image: cs3-magic/climate4impact-portal
   expose:
     - "443"
