@@ -1,13 +1,16 @@
-services:
-  build: ./adaguc-services/
+adaguc-services:
+  # build: /home/user/adaguc-services
+  image: cs3-magic/adaguc-services
   expose:
   - "9000"
   volumes:
-    - ./data/services:/data
+    - ./data/adaguc-services:/data
+    - ./config/adaguc-services:/config
 portal:
-  build: ./climate4impact-portal/docker/
+  # build: ./climate4impact-portal/docker/
+  image: cs3-magic/climate4impact-portal
   expose:
     - "443"
   volumes:
-    - ./configs/portal:/config
+    - ./config/portal:/config
     - ./data/portal:/data
