@@ -3,6 +3,8 @@ adaguc-services:
   image: cs3-magic/adaguc-services
   expose:
   - "9000"
+  ports:
+  - "9000:9000"
   volumes:
     - ./data/adaguc-services:/data
     - ./config/adaguc-services:/config
@@ -11,6 +13,8 @@ portal:
   image: cs3-magic/climate4impact-portal
   expose:
     - "443"
+  ports:
+   - "443:443"
   volumes:
     - ./config/portal:/config
     - ./data/portal:/data
