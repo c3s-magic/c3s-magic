@@ -1,6 +1,6 @@
 adaguc-services:
   # build: /home/user/adaguc-services
-  image: cs3-magic/adaguc-services
+  image: c3smagic/adaguc-services
   expose:
   - "9000"
   ports:
@@ -10,11 +10,14 @@ adaguc-services:
     - ./config/adaguc-services:/config
 portal:
   # build: /home/user/climate4impact-portal/docker/
-  image: cs3-magic/climate4impact-portal
+  image: c3smagic/climate4impact-portal
   expose:
     - "443"
+    - "80"
   ports:
    - "443:443"
+   - "80:8080"
   volumes:
     - ./config/portal:/config
     - ./data/portal:/data
+    - ./letsencrypt/.well-known:/var/lib/tomcat/webapps/.well-known
