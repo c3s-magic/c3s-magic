@@ -1,6 +1,7 @@
 adaguc-services:
-  # build: /home/user/adaguc-services
-  image: c3smagic/adaguc-services
+  #build: /home/niels/Magic/adaguc-services-esmvaltool-wps
+  #image: c3smagic/adaguc-services
+  image: c3smagic/adaguc-services-esmvaltool-wps
   expose:
   - "9000"
   ports:
@@ -8,9 +9,15 @@ adaguc-services:
   volumes:
     - ./data/adaguc-services:/data
     - ./config/adaguc-services:/config
+      #- ~/Data/ESMValTool:/data-esmvaltool
+    #develop mounts
+    #- ~/Magic/adaguc-services-esmvaltool-wps/namelists:/src/namelists
+    #- ~/Magic/adaguc-services-esmvaltool-wps/processes:/src/processes
 portal:
   # build: /home/user/climate4impact-portal/docker/
   image: c3smagic/climate4impact-portal
+  links:
+    - adaguc-services
   expose:
     - "443"
     - "80"
