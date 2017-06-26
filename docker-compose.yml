@@ -1,18 +1,19 @@
 adaguc-services:
-  #build: /home/niels/Magic/adaguc-services-esmvaltool-wps
+  build: ~/adaguc-services-esmvaltool-wps
   #image: c3smagic/adaguc-services
-  image: c3smagic/adaguc-services-esmvaltool-wps
+  #image: c3smagic/adaguc-services-esmvaltool-wps
   expose:
   - "9000"
   ports:
   - "9000:9000"
   volumes:
-    - ./data/adaguc-services:/data
+    - /data/adaguc-services:/data
     - ./config/adaguc-services:/config
+    - /data/esmvaltool:/data-esmvaltool
       #- ~/Data/ESMValTool:/data-esmvaltool
     #develop mounts
-    #- ~/Magic/adaguc-services-esmvaltool-wps/namelists:/src/namelists
-    #- ~/Magic/adaguc-services-esmvaltool-wps/processes:/src/processes
+    #- ~/adaguc-services-esmvaltool-wps/namelists:/namelists
+    #- ~/adaguc-services-esmvaltool-wps/processes:/src/processes
 portal:
   # build: /home/user/climate4impact-portal/docker/
   image: c3smagic/climate4impact-portal
@@ -26,5 +27,5 @@ portal:
    - "80:8080"
   volumes:
     - ./config/portal:/config
-    - ./data/portal:/data
+    - /data/portal:/data
     - ./letsencrypt/.well-known:/var/lib/tomcat/webapps/.well-known
