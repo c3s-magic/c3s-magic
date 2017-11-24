@@ -14,3 +14,5 @@ sudo keytool -delete -alias adagucservicescert -keystore config/portal/esg-trust
 echo "import certificate to truststore"
 keytool -import -v -trustcacerts -alias adagucservicescert -file ~/adagucservicescert.pem -keystore config/portal/esg-truststore.ts -storepass changeit -noprompt
 
+cp config/portal/esg-truststore.ts config/adaguc-services/esg-truststore.ts
+cp config/portal/c4i_keystore.jks config/adaguc-services/keystore.jks

@@ -1,7 +1,7 @@
 adaguc-services:
-  build: ~/adaguc-services-esmvaltool-wps
+  #build: ~/adaguc-services-esmvaltool-wps
   #image: c3smagic/adaguc-services
-  #image: c3smagic/adaguc-services-esmvaltool-wps
+  image: c3smagic/adaguc-services-esmvaltool-wps
   expose:
   - "9000"
   ports:
